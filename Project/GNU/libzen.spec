@@ -1,9 +1,9 @@
-%global libzen_version            0.4.39
+%global libzen_version            0.4.41
 %global libzen_version_major      0
 %global libzen_version_minor      4
-%global libzen_version_release    37
+%global libzen_version_release    41
 
-%if 0%{?fedora_version} || 0%{?centos_version} >= 600 || 0%{?rhel_version} >= 600
+%if 0%{?fedora} || 0%{?rhel}
 %global package_with_0_ending 0
 %global libzen_name libzen
 %else
@@ -40,8 +40,8 @@ BuildRequires:  doxygen
 BuildRequires:  libtool
 BuildRequires:  automake
 BuildRequires:  autoconf
-%if 0%{?rhel_version} >= 800 || 0%{?centos_version} >= 800
-BuildRequires:  gdb
+%if 0%{?rhel} > 8
+BuildRequires:  alternatives
 %endif
 
 %if 0%{?rhel}
@@ -150,13 +150,7 @@ popd
 cp Source/Doc/*.html ./
 
 pushd Project/GNU/Library
-    %if 0%{?mageia} > 5
-        %configure --disable-static --enable-shared --disable-dependency-tracking
-    %else
-        %configure --disable-static --enable-shared
-    %endif
-
-    make clean
+    %configure --disable-static --enable-shared
     make %{?_smp_mflags}
 popd
 
@@ -181,7 +175,7 @@ done
 
 %define libzen_files %defattr(-,root,root,-)\
 %doc History.txt ReadMe.txt\
-%if 0%{?fedora_version} || 0%{?centos_version} >= 700 || 0%{?rhel_version} >= 700\
+%if 0%{?fedora} || 0%{?rhel}\
 %license License.txt\
 %else\
 %doc License.txt\
@@ -190,11 +184,6 @@ done
 
 %files
 %{libzen_files}
-
-%if 0%{?rhel} == 5
-%exclude %{_usr}/lib/debug
-%exclude %{_usr}/src/debug
-%endif
 
 %%if 0%{?rhel}
 %files -n %{libzen_name}%{libzen_suffix}
@@ -216,7 +205,9 @@ done
 %define devel_files %defattr(-,root,root,-)\
 %{_includedir}/ZenLib\
 %{_libdir}/%{name_without_0_ending}.so\
+%if 0%{?fedora} < 37 \
 %{_libdir}/%{name_without_0_ending}.la\
+%endif \
 %{_libdir}/pkgconfig/*.pc
 
 %files -n %{name_without_0_ending}-devel
@@ -228,7 +219,7 @@ done
 %endif
 
 %changelog
-* Thu Jan 01 2009 MediaArea.net SARL <info@mediaarea.net> - 0.4.39-0
+* Wed Dec 21 2022 MediaArea.net SARL <info@mediaarea.net> - 0.4.41-0
 - See History.txt for more info and real dates
 - Previous packages made by Toni Graffy <toni@links2linux.de>
 - Fedora style made by Vasiliy N. Glazov <vascom2@gmail.com>

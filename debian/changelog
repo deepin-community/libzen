@@ -1,3 +1,23 @@
+libzen (0.4.41-2) unstable; urgency=medium
+
+  * [3a602d5] Set Multi-Arch: foreign for libzen-doc
+  * [b7a9270] Add autopkgtests
+
+ -- Chow Loong Jin <hyperair@debian.org>  Thu, 13 Apr 2023 16:31:03 +0800
+
+libzen (0.4.41-1) unstable; urgency=medium
+
+  * [587254d] New upstream version 0.4.41
+
+ -- Chow Loong Jin <hyperair@debian.org>  Wed, 12 Apr 2023 10:28:04 +0800
+
+libzen (0.4.40-1) unstable; urgency=medium
+
+  * [3b63928] New upstream version 0.4.40
+  * [598e7db] Drop superfluous file patterns from debian/copyright
+
+ -- Chow Loong Jin <hyperair@debian.org>  Sat, 24 Dec 2022 16:09:22 +0800
+
 libzen (0.4.39-1) unstable; urgency=medium
 
   * [dadb67e] New upstream version 0.4.39

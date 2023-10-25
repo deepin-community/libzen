@@ -1,0 +1,3 @@
+Tests: example-zenlib-test
+Depends: libzen-dev, pkg-config, g++ | c++-compiler
+Restrictions: allow-stderr
