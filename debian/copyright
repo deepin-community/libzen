@@ -12,27 +12,14 @@ Copyright: 2005, Jan Ringos
            2007-2011, MediaArea.net SARL <Info@MediaArea.net>
 License: Zlib
 
-Files: Source/ZenLib/Base64/base64.h
-Copyright: 2002, Markus Ewald
-License: Zlib
-
 Files: Source/ZenLib/HTTP_Client/*
 Copyright: 2006, Eitan Michaelson
 License: Zlib
-
-Files: Source/ZenLib/TinyXml/*
-Copyright: 2000-2006, Lee Thomason (www.grinninglizard.com)
-License: Zlib
-Comment: Bundled copy of TinyXML
 
 Files: Source/ZenLib/PreComp.cpp
        Source/ZenLib/PreComp.h
 Copyright: 2006-2011, MediaArea.net SARL <Info@MediaArea.net>
 License: LGPL-3+
-
-Files: Source/MD5/*
-Copyright: Public Domain
-License: public-domain
 
 Files: Source/ZenLib/HTTP_Client/HTTPClientWrapper.*
 Copyright: 2005-2006, Eitan Michaelson

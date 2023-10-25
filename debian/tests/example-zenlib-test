@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -eu
+# exec >"$AUTOPKGTEST_ARTIFACTS/example-zenlib-test.log" 2>&1
+
+sed -e '/system("PAUSE")/d' Source/Example/ZenLib_Test.cpp \
+    > "$AUTOPKGTEST_TMP/ZenLib_Test.cpp"
+
+cd "$AUTOPKGTEST_TMP"
+# shellcheck disable=SC2046
+c++ ZenLib_Test.cpp \
+    -o zenlib-test-binary \
+    $(pkg-config --cflags --libs libzen)
+
+exec ./zenlib-test-binary
